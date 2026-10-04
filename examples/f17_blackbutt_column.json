@@ -1,0 +1,23 @@
+{
+  "material": {
+    "stress_grade": "F17",
+    "timber_type": "hardwood",
+    "moisture_condition": "seasoned",
+    "category": 1,
+    "duration": "5_days",
+    "expected_annual_emc_percent": 15,
+    "northern_region_factor_applies": false,
+    "partially_seasoned_before_full_load": false,
+    "least_dimension_mm": 90
+  },
+  "section": {"breadth_mm": 90, "depth_mm": 240},
+  "compression_kn": 120,
+  "restraint": {
+    "length_mm": 3000,
+    "major_axis_restraint_spacing_mm": 3000,
+    "minor_axis_restraint_spacing_mm": 3000,
+    "end_restraint_condition": "fixed_both_ends",
+    "continuous_major_axis_restraint": false,
+    "continuous_minor_axis_restraint": false
+  }
+}
