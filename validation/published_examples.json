@@ -1,0 +1,88 @@
+{
+  "standard_basis": "AS 1720.1:2010 incorporating Amendments 1, 2 and 3 (Amd 3:2015)",
+  "verified_on": "2026-10-05",
+  "method": "Inputs were reproduced in third-party AS 1720.1 calculator examples and compared with this plugin. Published outputs are checked within half of their displayed rounding unit. These calculator cases supplement, and are not represented as, worked examples from AS 1720.1. The standard-equation benchmarks remain in benchmarks.json.",
+  "cases": [
+    {
+      "id": "new_future_solutions_f17_column",
+      "source_url": "https://newfuturesolutions.com.au/timber-column-design-calculator-as-1720-1/",
+      "source_example": "Load F17 Example",
+      "input_file": "examples/new_future_solutions_f17_column.json",
+      "published_outputs": {
+        "governing_capacity_kn": 45.16,
+        "utilisation_percent": 88.6
+      },
+      "displayed_increment": {
+        "governing_capacity_kn": 0.01,
+        "utilisation_percent": 0.1
+      },
+      "plugin_outputs": {
+        "major_axis_capacity_kn": 45.15624999999998,
+        "minor_axis_capacity_kn": 45.15624999999998,
+        "utilisation_percent": 88.58131487889278,
+        "s3": 26.666666666666668,
+        "s4": 26.666666666666668,
+        "k12": 0.24112654320987645
+      },
+      "comparison": "matches_at_displayed_precision"
+    },
+    {
+      "id": "new_future_solutions_f17_beam",
+      "source_url": "https://newfuturesolutions.com.au/timber-beam-bending-capacity-calculator-as-1720-1/",
+      "source_example": "F17 90 x 240 mm beam; 12.6 kN·m; 4000 mm discrete compression-edge restraint",
+      "input_file": "examples/new_future_solutions_f17_beam.json",
+      "published_outputs": {
+        "slenderness_coefficient_s1": 13.912,
+        "stability_factor_k12": 0.818,
+        "design_bending_capacity_knm": 20.19,
+        "utilisation_percent": 62.4
+      },
+      "displayed_increment": {
+        "slenderness_coefficient_s1": 0.001,
+        "stability_factor_k12": 0.001,
+        "design_bending_capacity_knm": 0.01,
+        "utilisation_percent": 0.1
+      },
+      "standard_equation_reference": {
+        "source_url": "https://ewp.asn.au/wp-content/uploads/2018/12/EWPAA-Structural-Plywood-LVL-Design-Guide-v5-FINAL.pdf",
+        "location": "Appendix - Chapter 6, printed page 260 (PDF page 261); refers to AS 1720.1 Clause 3.2.3.2",
+        "equation": "S1 = 1.25(d/b)sqrt(Lay/d)",
+        "expected_outputs": {
+          "slenderness_coefficient_s1": 13.608276348795435,
+          "stability_factor_k12": 0.8331944589090237,
+          "design_bending_capacity_knm": 20.55977315692564,
+          "utilisation_percent": 61.28472286064908
+        }
+      },
+      "plugin_outputs": {
+        "slenderness_coefficient_s1": 13.608276348795435,
+        "stability_factor_k12": 0.8331944589090237,
+        "design_bending_capacity_knm": 20.55977315692564,
+        "utilisation_percent": 61.28472286064908
+      },
+      "comparison": "documented_third_party_discrepancy",
+      "note": "The page reports S1 = 13.912 and Md = 20.19 kN·m. The guide equation gives S1 = 13.608276 and Md = 20.559773 kN·m for the same geometry and restraint spacing. The plugin follows the guide's equation, which is identified there as the AS 1720.1 Clause 3.2.3.2 approximation; the third-party output is not treated as a standard benchmark pass."
+    },
+    {
+      "id": "new_future_solutions_f17_sd2_bearing",
+      "source_url": "https://newfuturesolutions.com.au/timber-beam-bearing-capacity-calculator-as-1720/",
+      "source_example": "F17 / SD2 bearing; 90 x 75 mm; 25 kN; EMC 18%; 75 mm bearing length and end distance",
+      "input_file": "examples/f17_blackbutt_bearing.json",
+      "published_outputs": {
+        "design_capacity_kn": 110.48,
+        "utilisation_percent": 22.6
+      },
+      "displayed_increment": {
+        "design_capacity_kn": 0.01,
+        "utilisation_percent": 0.1
+      },
+      "plugin_outputs": {
+        "design_capacity_kn": 110.47900499999999,
+        "utilisation_percent": 22.628733848571503,
+        "k4": 0.91,
+        "k7": 1.15
+      },
+      "comparison": "matches_at_displayed_precision"
+    }
+  ]
+}
