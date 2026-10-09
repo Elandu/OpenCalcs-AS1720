@@ -1,3 +1,5 @@
-"""Selected AS 1720.1 timber member strength checks."""
+"""Compatibility namespace for the former opencalcs_as1720 package."""
 
-__version__ = "0.1.0"
+from engcalcs_as1720 import __version__
+
+__all__ = ["__version__"]

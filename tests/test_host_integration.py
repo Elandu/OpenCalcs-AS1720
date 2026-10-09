@@ -1,4 +1,4 @@
-"""Optional integration checks against an installed OpenCalcs host."""
+"""Optional integration checks against an installed EngCalcs host."""
 
 import json
 from importlib.metadata import entry_points
@@ -7,12 +7,12 @@ from pathlib import Path
 import pytest
 
 PLUGIN_ENTRY = next(
-    (item for item in entry_points(group="opencalcs.plugins") if item.name == "as1720"),
+    (item for item in entry_points(group="engcalcs.plugins") if item.name == "as1720"),
     None,
 )
 if PLUGIN_ENTRY is None:
     pytest.skip(
-        "Install this wheel and the OpenCalcs host to run integration checks.",
+        "Install this wheel and the EngCalcs host to run integration checks.",
         allow_module_level=True,
     )
 
@@ -24,8 +24,8 @@ def _inputs(filename):
 
 
 def test_entry_point_registers_all_calculations_and_registry_runs_examples():
-    pytest.importorskip("opencalcs")
-    from opencalcs.registry import CalculationRegistry
+    pytest.importorskip("engcalcs")
+    from engcalcs.registry import CalculationRegistry
 
     plugin = PLUGIN_ENTRY.load()()
     assert plugin.id == "structural.as1720"
@@ -72,10 +72,10 @@ def test_entry_point_registers_all_calculations_and_registry_runs_examples():
 
 
 def test_host_http_catalog_and_calculation_run():
-    pytest.importorskip("opencalcs")
+    pytest.importorskip("engcalcs")
+    from engcalcs.api import create_app
+    from engcalcs.auth import AllowAllAuthenticator
     from fastapi.testclient import TestClient
-    from opencalcs.api import create_app
-    from opencalcs.auth import AllowAllAuthenticator
 
     with TestClient(create_app(authenticator=AllowAllAuthenticator())) as client:
         descriptor = client.get("/api/v1/calculations/structural.as1720.column_design")

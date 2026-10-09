@@ -3,9 +3,9 @@ requires = ["hatchling>=1.26,<2"]
 build-backend = "hatchling.build"
 
 [project]
-name = "opencalcs-as1720"
+name = "engcalcs-as1720"
 version = "0.1.0"
-description = "Clause-traced selected AS 1720.1 timber member strength checks for OpenCalcs."
+description = "Clause-traced selected AS 1720.1 timber member strength checks for EngCalcs."
 readme = "README.md"
 requires-python = ">=3.12"
 license = "AGPL-3.0-only"
@@ -18,11 +18,14 @@ Issues = "https://github.com/Elandu/OpenCalcs-AS1720/issues"
 [project.optional-dependencies]
 dev = ["pytest>=8.3,<9", "ruff>=0.11,<1", "build>=1.2,<2"]
 
+[project.entry-points."engcalcs.plugins"]
+as1720 = "engcalcs_as1720.plugin:get_plugin"
+
 [project.entry-points."opencalcs.plugins"]
 as1720 = "opencalcs_as1720.plugin:get_plugin"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/opencalcs_as1720"]
+packages = ["src/engcalcs_as1720", "src/opencalcs_as1720"]
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]

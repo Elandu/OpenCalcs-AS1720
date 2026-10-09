@@ -37,4 +37,4 @@ No serviceability or deflection assessment, load combinations, analysis, joints,
 
 ## Source table storage
 
-Selected F-grade strength/modulus values (Table H2.1), stability constants (Tables 3.1 and 3.3), bearing properties (Table H2.2), duration factors (Table 2.3), end factors (Table 3.2), and bearing factors (Table 2.6) are encoded in `src/opencalcs_as1720/standards.py`. The licensed standard, text extracts, OCR, and page renders are not distributed here.
+Selected F-grade strength/modulus values (Table H2.1), stability constants (Tables 3.1 and 3.3), bearing properties (Table H2.2), duration factors (Table 2.3), end factors (Table 3.2), and bearing factors (Table 2.6) are encoded in `src/engcalcs_as1720/standards.py`. The licensed standard, text extracts, OCR, and page renders are not distributed here.

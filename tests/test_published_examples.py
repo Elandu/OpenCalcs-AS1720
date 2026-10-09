@@ -6,7 +6,7 @@ from pathlib import Path
 
 import pytest
 
-from opencalcs_as1720.calculations import run_beam_design, run_bearing_design, run_column_design
+from engcalcs_as1720.calculations import run_beam_design, run_bearing_design, run_column_design
 
 ROOT = Path(__file__).resolve().parents[1]
 REPORT = json.loads((ROOT / "validation" / "published_examples.json").read_text(encoding="utf-8"))

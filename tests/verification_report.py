@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 from typing import Any
 
-from opencalcs_as1720.calculations import (
+from engcalcs_as1720.calculations import (
     run_beam_design,
     run_bearing_design,
     run_column_design,
@@ -12,7 +12,7 @@ from opencalcs_as1720.calculations import (
     run_combined_tension,
     run_tension_design,
 )
-from opencalcs_as1720.standards import STANDARD
+from engcalcs_as1720.standards import STANDARD
 
 ROOT = Path(__file__).resolve().parents[1]
 TOLERANCE = 1e-9

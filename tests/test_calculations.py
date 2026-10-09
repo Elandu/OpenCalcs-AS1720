@@ -6,7 +6,7 @@ from pathlib import Path
 import pytest
 from jsonschema import Draft202012Validator
 
-from opencalcs_as1720.calculations import (
+from engcalcs_as1720.calculations import (
     _stability_factor,
     run_beam_design,
     run_bearing_design,
@@ -15,8 +15,8 @@ from opencalcs_as1720.calculations import (
     run_combined_tension,
     run_tension_design,
 )
-from opencalcs_as1720.plugin import get_plugin
-from opencalcs_as1720.schemas import (
+from engcalcs_as1720.plugin import get_plugin
+from engcalcs_as1720.schemas import (
     BEAM_INPUT_SCHEMA,
     BEARING_INPUT_SCHEMA,
     COLUMN_INPUT_SCHEMA,
@@ -25,7 +25,7 @@ from opencalcs_as1720.schemas import (
     OUTPUT_SCHEMA,
     TENSION_INPUT_SCHEMA,
 )
-from opencalcs_as1720.standards import F_GRADE_PROPERTIES, PHI_HIGH_GRADE, PHI_OTHER_GRADE
+from engcalcs_as1720.standards import F_GRADE_PROPERTIES, PHI_HIGH_GRADE, PHI_OTHER_GRADE
 from tests.verification_report import build_report
 
 ROOT = Path(__file__).resolve().parents[1]

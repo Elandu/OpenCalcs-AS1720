@@ -1,6 +1,6 @@
-# OpenCalcs AS 1720.1
+# EngCalcs AS 1720.1
 
-An installable OpenCalcs plugin for selected strength checks to AS 1720.1:2010 incorporating Amendments 1, 2 and 3. It currently covers unnotched rectangular solid-sawn F-grade timber members: beam bending and shear, column compression stability, axial tension, bearing, and the standard's combined bending/axial interaction checks.
+An installable EngCalcs plugin for selected strength checks to AS 1720.1:2010 incorporating Amendments 1, 2 and 3. It currently covers unnotched rectangular solid-sawn F-grade timber members: beam bending and shear, column compression stability, axial tension, bearing, and the standard's combined bending/axial interaction checks.
 
 This is a bounded calculation tool. A passing result means only that the listed strength checks pass for the supplied design actions, material classification, geometry and restraint assumptions. It does not establish compliance of a member, connection, structure, or project with all of AS 1720.1 or other applicable standards.
 
@@ -10,7 +10,7 @@ This is a bounded calculation tool. A passing result means only that the listed 
 python -m pip install .
 ```
 
-OpenCalcs discovers the plugin through the `opencalcs.plugins` entry point. The package has no structural-analysis solver dependency.
+EngCalcs discovers the plugin through the `engcalcs.plugins` entry point. The package has no structural-analysis solver dependency.
 
 ## Calculations
 
