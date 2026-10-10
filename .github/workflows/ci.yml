@@ -58,7 +58,7 @@ jobs:
           descriptor = plugin.descriptor()
           assert version("opencalcs-as1720") == descriptor["version"]
           assert descriptor["id"] == "structural.as1720"
-          assert descriptor["license"] == "AGPL-3.0-only"
+          assert descriptor["license"] == "LicenseRef-EngCalcs-Proprietary"
           ids = {item["id"] for item in descriptor["calculations"]}
           assert ids == {
               "structural.as1720.beam_design",
