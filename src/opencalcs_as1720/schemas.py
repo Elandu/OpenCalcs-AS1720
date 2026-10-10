@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: LicenseRef-EngCalcs-Proprietary
+
 """Strict JSON schemas for the public calculation inputs and outputs."""
 
 from copy import deepcopy

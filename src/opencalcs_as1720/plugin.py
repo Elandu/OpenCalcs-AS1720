@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: LicenseRef-EngCalcs-Proprietary
+
 """OpenCalcs entry point and calculation descriptors."""
 
 from collections.abc import Callable, Mapping
@@ -115,11 +117,11 @@ def _calculations() -> tuple[Calculation, ...]:
 @dataclass(frozen=True)
 class AS1720Plugin:
     id: str = "structural.as1720"
-    name: str = "OpenCalcs Timber Design"
+    name: str = "EngCalcs Timber Design"
     version: str = __version__
     revision: str | None = None
-    license: str = "AGPL-3.0-only"
-    source: str = "https://github.com/Elandu/OpenCalcs-AS1720"
+    license: str = "LicenseRef-EngCalcs-Proprietary"
+    source: str = "https://github.com/Elandu/EngCalcs-AS1720"
     calculations: tuple[Calculation, ...] = field(default_factory=_calculations)
 
     def descriptor(self) -> dict[str, Any]:
