@@ -1,0 +1,93 @@
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    name: Lint and regression (Python ${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.12", "3.13", "3.14"]
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - name: Install module test dependencies
+        run: python -m pip install -e ".[dev]"
+      - name: Lint
+        run: ruff check .
+      - name: Format
+        run: ruff format --check .
+      - name: Numerical, scope and schema regression tests
+        run: python -m pytest -q tests/test_calculations.py tests/test_published_examples.py
+
+  package:
+    name: Installed wheel discovery contract
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build wheel and sdist
+        run: |
+          python -m pip install ".[dev]"
+          python -m build
+      - name: Install wheel and verify the runtime entry point
+        run: |
+          python -m pip install --force-reinstall dist/*.whl
+          cd "$RUNNER_TEMP"
+          python - <<'PY'
+          from importlib.metadata import entry_points, version
+
+          entries = [ep for ep in entry_points(group="opencalcs.plugins") if ep.name == "as1720"]
+          assert len(entries) == 1, entries
+          plugin = entries[0].load()()
+          descriptor = plugin.descriptor()
+          assert version("opencalcs-as1720") == descriptor["version"]
+          assert descriptor["id"] == "structural.as1720"
+          assert descriptor["license"] == "AGPL-3.0-only"
+          ids = {item["id"] for item in descriptor["calculations"]}
+          assert ids == {
+              "structural.as1720.beam_design",
+              "structural.as1720.column_design",
+              "structural.as1720.tension_design",
+              "structural.as1720.bearing_design",
+              "structural.as1720.combined_compression",
+              "structural.as1720.combined_tension",
+          }
+          assert all(item["standard"]["edition"] == "2010" for item in descriptor["calculations"])
+          assert all("Amendments 1, 2 and 3" in item["standard"]["amendments"] for item in descriptor["calculations"])
+          PY
+
+  host-integration:
+    name: Pinned EngCalcs host compatibility
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: Elandu/EngCalcs
+          ref: 1177615dd387711596b785170572137c8debe77d
+          path: engcalcs-host
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install pinned host and candidate timber module
+        run: |
+          python -m pip install -e "./engcalcs-host[dev]"
+          python -m pip install -e ".[dev]"
+      - name: Assert installed host discovery, example outputs and provenance
+        run: python -m pytest -q tests/test_host_integration.py
