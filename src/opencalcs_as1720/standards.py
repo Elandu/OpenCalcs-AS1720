@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: LicenseRef-EngCalcs-Proprietary
+
 """Reviewed edition metadata and selected tabular design values."""
 
 from dataclasses import dataclass

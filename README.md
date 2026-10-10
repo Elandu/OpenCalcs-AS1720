@@ -1,4 +1,4 @@
-# OpenCalcs AS 1720.1
+# EngCalcs AS 1720.1
 
 An installable OpenCalcs plugin for selected strength checks to AS 1720.1:2010 incorporating Amendments 1, 2 and 3. It currently covers unnotched rectangular solid-sawn F-grade timber members: beam bending and shear, column compression stability, axial tension, bearing, and the standard's combined bending/axial interaction checks.
 
@@ -40,3 +40,7 @@ The user remains responsible for the governing edition, material identification 
 ## License
 
 AGPL-3.0-only. See `LICENSE`.
+
+## Licensing
+
+This release is issued under proprietary terms; see `LICENSE` and `LICENSING.md`. Previously licensed AGPL releases retain their original terms. Legacy `opencalcs` Python import names and plugin identifiers are retained for integration compatibility.

@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: LicenseRef-EngCalcs-Proprietary
+
 """Selected strength calculations traceable to AS 1720.1:2010 Amd 3."""
 
 from collections.abc import Mapping

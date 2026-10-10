@@ -8,12 +8,12 @@ version = "0.1.0"
 description = "Clause-traced selected AS 1720.1 timber member strength checks for OpenCalcs."
 readme = "README.md"
 requires-python = ">=3.12"
-license = "AGPL-3.0-only"
+license = "LicenseRef-EngCalcs-Proprietary"
 dependencies = ["jsonschema>=4.22,<5"]
 
 [project.urls]
-Repository = "https://github.com/Elandu/OpenCalcs-AS1720"
-Issues = "https://github.com/Elandu/OpenCalcs-AS1720/issues"
+Repository = "https://github.com/Elandu/EngCalcs-AS1720"
+Issues = "https://github.com/Elandu/EngCalcs-AS1720/issues"
 
 [project.optional-dependencies]
 dev = ["pytest>=8.3,<9", "ruff>=0.11,<1", "build>=1.2,<2"]
