@@ -37,10 +37,6 @@ Not included: serviceability and deflection; load combinations or structural ana
 
 The user remains responsible for the governing edition, material identification and grading evidence, design actions, load duration, service moisture and exposure, restraint and effective lengths, support and bearing details, and all checks outside this plugin's stated scope.
 
-## License
-
-AGPL-3.0-only. See `LICENSE`.
-
 ## Licensing
 
 This release is issued under proprietary terms; see `LICENSE` and `LICENSING.md`. Previously licensed AGPL releases retain their original terms. Legacy `opencalcs` Python import names and plugin identifiers are retained for integration compatibility.
