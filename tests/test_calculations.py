@@ -232,7 +232,7 @@ def test_plugin_descriptor_is_solver_independent_and_deep_copied():
     plugin = get_plugin()
     descriptor = plugin.descriptor()
     assert plugin.id == "structural.as1720"
-    assert descriptor["license"] == "AGPL-3.0-only"
+    assert descriptor["license"] == "LicenseRef-EngCalcs-Proprietary"
     assert len(descriptor["calculations"]) == 6
     assert all(
         calc["standard"]["amendments"] == "Amendments 1, 2 and 3 (Amd 3:2015)"
